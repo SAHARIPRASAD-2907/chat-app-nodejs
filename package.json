@@ -1,0 +1,24 @@
+{
+  "name": "chat-app-nodejs",
+  "version": "1.0.0",
+  "description": "\"chat app using socket.io\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"nodemon src/index.js",
+    "dev":"nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SAHARIPRASAD-2907/chat-app-nodejs.git"
+  },
+  "author": "hariprasad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SAHARIPRASAD-2907/chat-app-nodejs/issues"
+  },
+  "homepage": "https://github.com/SAHARIPRASAD-2907/chat-app-nodejs#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
