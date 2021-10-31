@@ -13,7 +13,11 @@
   </head>
   <body>
     <p>Chat App With Node</p>
-    <button id="incriment">+1</button>
+    <form id="chat" name="chat">
+      <label for="">Enter your message<input id="message" type="text"/></label>
+      <input type="submit" id="submit">
+    </form>
+    <button id="send-location">Send location</button>
   </body>
 </html>
 <script src="/socket.io/socket.io.js"></script>

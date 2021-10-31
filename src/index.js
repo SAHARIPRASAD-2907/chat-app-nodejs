@@ -16,12 +16,25 @@ let count = 0;
 
 io.on('connection',(socket)=>{
   console.log("New web socket connection");
-  socket.emit("countUpdated",count)
+  // socket.emit("countUpdated",count)
 
-  socket.on('increment',()=>{
-    count++;
-    //socket.emit('countUpdated',count) emmiting to single user
-    io.emit("countUpdated",count) //send update to every connection
+  // socket.on('increment',()=>{
+  //   count++;
+  //   //socket.emit('countUpdated',count) emitting to single user
+  //   io.emit("countUpdated",count) //send update to every connection
+  // })
+
+  socket.emit("message","Welcome")
+
+  socket.broadcast.emit('message','A new user has joined!')
+
+  socket.on('sendMessage',(msg)=>{
+    console.log();
+    io.emit("message",msg)
+  })
+
+  socket.on('disconnect',()=>{
+    io.emit('message','A user has left')
   })
 })
 
