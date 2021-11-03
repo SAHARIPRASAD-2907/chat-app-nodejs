@@ -32,6 +32,9 @@ io.on('connection',(socket)=>{
     console.log();
     io.emit("message",msg)
   })
+  socket.on("sendLocation",({lat,lng})=>{
+    io.emit('message',`https://google.com/maps?q=${lat},${lng}`)
+  })
 
   socket.on('disconnect',()=>{
     io.emit('message','A user has left')

@@ -19,3 +19,16 @@ document.querySelector("#chat").addEventListener('submit',(e)=>{
     const msg = document.querySelector('#message').value;
     socket.emit('sendMessage',msg)
 })
+
+document.querySelector("#send-location").addEventListener("click",(e)=>{
+    if(!navigator.geolocation){
+        return alert("Geolocation is not supported by the browser")
+    }
+
+    navigator.geolocation.getCurrentPosition((position)=>{
+        console.log(position);
+        console.log(position.coords.latitude);
+        console.log(position.coords.longitude);
+        socket.emit("sendLocation",{lat:position.coords.latitude,lng:position.coords.longitude})
+    })
+})
