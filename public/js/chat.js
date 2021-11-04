@@ -17,7 +17,12 @@ socket.on('message',(msg)=>{
 document.querySelector("#chat").addEventListener('submit',(e)=>{
     e.preventDefault()
     const msg = document.querySelector('#message').value;
-    socket.emit('sendMessage',msg)
+    socket.emit('sendMessage', msg, (error) => {
+        if (error) {
+            return console.log(error);
+        }
+        console.log("Message delivered!");
+    })
 })
 
 document.querySelector("#send-location").addEventListener("click",(e)=>{
@@ -29,6 +34,8 @@ document.querySelector("#send-location").addEventListener("click",(e)=>{
         console.log(position);
         console.log(position.coords.latitude);
         console.log(position.coords.longitude);
-        socket.emit("sendLocation",{lat:position.coords.latitude,lng:position.coords.longitude})
+        socket.emit("sendLocation", { lat: position.coords.latitude, lng: position.coords.longitude }, (err) => {
+            console.log("Message delivered");
+        })
     })
 })
